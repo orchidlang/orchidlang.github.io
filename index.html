@@ -2,54 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Orchid Programming Language</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orchid - Programming Language</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2e0050, #4b0082);
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    header {
+      width: 260px;
+      background: rgba(75, 0, 130, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    header img {
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    header h1 {
+      font-size: 22px;
+      margin: 0 0 30px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Sidebar buttons */
+    nav {
+      width: 100%;
+    }
+    nav button {
+      width: 100%;
+      background-color: #6a0dad;
+      border: none;
+      color: white;
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    nav button:hover,
+    nav button.active {
+      background-color: #a170f9;
+      box-shadow: 0 0 10px #c3a9ffcc;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 40px 40px;
+      overflow-y: auto;
+    }
+
+    section.content {
+      background-color: rgba(255 255 255 / 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 700px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      color: #eee;
+    }
+    section.content.active {
+      display: block;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #d1b3ff;
+      font-weight: 700;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #dcd6f7;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    ul li a {
+      color: #b99cff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    ul li a:hover {
+      color: #e0c8ff;
+      text-decoration: underline;
+    }
+    .downloads a {
+      display: inline-block;
+      margin: 15px 15px 15px 0;
+      padding: 14px 22px;
+      text-decoration: none;
+      color: white;
+      background-color: #7f3fbf;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      box-shadow: 0 0 10px #9f66ffaa;
+    }
+    .downloads a:hover {
+      background-color: #a170f9;
+      box-shadow: 0 0 15px #c3a9ffcc;
+    }
+
+    /* Scrollbar for sidebar */
+    header::-webkit-scrollbar {
+      width: 8px;
+    }
+    header::-webkit-scrollbar-thumb {
+      background: #6a0dadaa;
+      border-radius: 4px;
+    }
+    header::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+      }
+      header {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        padding: 15px 20px;
+        overflow-y: visible;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header img {
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 15px;
+      }
+      header h1 {
+        font-size: 18px;
+        margin: 0;
+        flex: 1;
+        text-align: left;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      nav button {
+        flex: 1 1 auto;
+        margin: 0;
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+      main {
+        padding: 20px;
+      }
+      section.content {
+        max-width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Orchid Logo" class="logo"/>
+    <img src="logo.png" alt="Orchid Logo" />
     <h1>Orchid Programming Language</h1>
-    <p>A free and simple programming language for Windows<br><small>(Linux & macOS coming soon)</small></p>
+
+    <nav>
+      <button class="active" data-target="description">Description</button>
+      <button data-target="designer">About the Designer</button>
+      <button data-target="other">Other Links</button>
+      <button data-target="downloads">Downloads</button>
+    </nav>
   </header>
 
   <main>
-    <section class="download-section">
-      <h2>Download Orchid 1.0</h2>
-      <div class="button-group">
-        <button onclick="downloadFile('msi')">Download .MSI</button>
-        <button onclick="downloadFile('exe')">Download .EXE</button>
-      </div>
+    <section id="description" class="content active">
+      <h2>Description</h2>
+      <p>Orchid is a lightweight, beginner-friendly, cross-platform programming language designed for accessibility, simplicity, and education.</p>
     </section>
 
-    <section class="about-section">
-      <h2>About Orchid</h2>
-      <p>
-        Orchid is a lightweight, beginner-friendly programming language designed to make coding more accessible to everyone. Whether you're a student taking your first steps into software development or a hobbyist looking for a minimal and expressive syntax, Orchid offers a clean and intuitive environment to build and experiment with code.
-      </p>
+    <section id="designer" class="content">
+      <h2>About the Designer</h2>
+      <p>Orchid was created by Zohan Haque, a passionate developer focused on creating accessible programming tools for all skill levels.</p>
+    </section>
 
-      <p>
-        Built entirely using Python, Orchid benefits from a solid foundation while delivering its own unique syntax and features. Its development was led by <strong>Zohan Haque</strong>, a passionate programmer who envisioned a language that balances simplicity and power — giving users the ability to write readable, maintainable code without sacrificing flexibility or control.
-      </p>
+    <section id="other" class="content">
+      <h2>Other Links</h2>
+      <ul>
+        <li><a href="https://github.com/orchidlang/orchid" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+        <li><a href="https://github.com/orchidlang/orchid/releases" target="_blank" rel="noopener noreferrer">Releases</a></li>
+        <li><a href="https://orchidlang.org/docs" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+      </ul>
+    </section>
 
-      <p>
-        Currently available for Windows, Orchid is distributed as both an `.msi` and `.exe` installer to make setup seamless for all kinds of users. Installation is straightforward — download, install, and begin coding right away using your favorite editor or the built-in Orchid environment. For developers on Linux and macOS, support is on the way, with cross-platform builds currently in progress.
-      </p>
-
-      <p>
-        Orchid is open, free to use, and designed with education in mind. It's perfect for teaching core programming concepts like variables, conditionals, loops, and functions, all in a gentle syntax that doesn't overwhelm. Yet under the hood, it still offers the ability to grow with your skills — supporting modular development and command-line execution for more advanced use cases.
-      </p>
-
-      <p>
-        The Orchid community is growing, and contributions are welcome. Whether you're curious about programming or passionate about language design, Orchid invites you to explore, build, and create. Zohan Haque and the Orchid team are committed to making Orchid better with every release — and we’d love to have you along for the journey.
-      </p>
+    <section id="downloads" class="content">
+      <h2>Downloads</h2>
+      <a href="https://github.com/orchidlang/orchid/releases/download/1.1/OrchidInstaller.exe" target="_blank" rel="noopener noreferrer">Windows Installer</a>
+      <a href="https://github.com/orchidlang/orchid/releases/download/1.1/OrchidLinux.sh" target="_blank" rel="noopener noreferrer">Linux Installer</a>
     </section>
   </main>
 
-  <footer>
-    <p>Built with ❤️ using Python &middot; Developed by Zohan Haque &middot; Orchid © 2025</p>
-  </footer>
+  <script>
+    const buttons = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('section.content');
 
-  <script src="script.js"></script>
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        buttons.forEach(btn => btn.classList.remove('active'));
+        // Hide all sections
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Activate clicked button
+        button.classList.add('active');
+        // Show related section
+        const targetId = button.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
+
