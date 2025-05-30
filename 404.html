@@ -1,27 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 Not Found</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #2e0050, #4b0082);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #d1b3ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 8rem;
+      margin: 0;
+      text-shadow: 0 0 20px #a170f9;
+    }
+    h2 {
+      font-size: 2rem;
+      margin: 10px 0 25px 0;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #c3a9ffcc;
+    }
+    a {
+      color: #b99cff;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid #b99cff;
+      padding: 10px 25px;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 0 12px #a170f9bb;
+    }
+    a:hover {
+      background-color: #a170f9;
+      color: white;
+      box-shadow: 0 0 20px #c3a9ffcc;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Orchid Logo" class="logo"/>
-    <h1>Orchid Programming Language</h1>
-  </header>
-
-  <main>
-    <section class="error-section">
-      <h2>404 - Page Not Found</h2>
-      <p>Sorry, the page you are looking for does not exist.</p>
-      <a href="/" class="button">Go to Homepage</a>
-    </section>
-  </main>
-
-  <footer>
-    <p>Built with ❤️ using Python &middot; Developed by Zohan Haque &middot; Orchid © 2025</p>
-  </footer>
+  <h1>404</h1>
+  <h2>Page Not Found</h2>
+  <p>Oops! The page you are looking for does not exist or has been moved.</p>
+  <a href="index.html">Go Back to Home</a>
 </body>
 </html>
